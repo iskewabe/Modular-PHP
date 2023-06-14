@@ -23,4 +23,12 @@ class Core {
 		if($this->stmt !== null) {$this->stmt = null;}
 		if($this->pdo !== null) {$this->pdo = null;}
 	}
+
+	// (D) RUN SQL QUERY
+	// $sql : sql query
+	// $data : array of parameters
+	fuction exec ($sql, $data=null) {
+	$this->stmt = $this->pdo->prepare($sql);
+	$this->stmt->execute($data);
+	}
 }
